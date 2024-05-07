@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <script>
+        var isOpen = false;
+        function show() {
+            
+            if(!isOpen) setTimeout(() => {
+                alert("检测到控制台打开");
+            }, 0);
+            // isOpen = true;
+        };
+
+        function checkConsoleIsOpen() {
+            var err = new Error();
+            err.__defineGetter__("message", function () {
+                show();
+                return "456"
+            })
+            throw err;
+        }
+
+    </script>
+</head>
+
+<body>
+    <button id="button" , onclick="window.checkConsoleIsOpen()">检测到控制台打开</button>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <script>
+        var isOpen = false;
+
+        function show() {
+            if (!isOpen)
+                setTimeout(() => {
+                    alert("检测到控制台打开");
+                }, 0),
+                    alert("检测到控制台打开");
+            //   isOpen = true;
+        }
+
+        function checkConsoleIsOpen() {
+            try {
+                document.createElement("div ");
+            } catch (err) {
+                let m = err.message;
+                err.__defineGetter__("message", function () {
+                    show();
+                    delete this.message;
+                    return m;
+                });
+                throw err;
+            }
+        }
+        function promise_check() {
+            new Promise(function (resolve, reject) {
+                try {
+                    checkConsoleIsOpen();
+                } catch (e) {
+                    reject(e);
+                }
+            })
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <button id="button" , onclick="window.promise_check()">检测到控制台打开</button>
+</body>
+
+</html>

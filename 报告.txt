@@ -1,0 +1,3 @@
+经测试 cause name stack message 均会被getter调用, 从而触发检测控制台
+第二版只会在已打开的情况下调用函数才能检测 第一版和promise版则不需要. 
+20分钟测试没问题
