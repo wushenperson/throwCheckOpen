@@ -15,7 +15,7 @@
 
         function checkConsoleIsOpen() {
             try {
-                document.createElement("div ");
+                document.createEvent("Touch");
             } catch (err) {
                 let m = err.message;
                 err.__defineGetter__("message", function () {
